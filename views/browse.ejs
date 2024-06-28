@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs'); %>
+
+    <div class="content-section mb-4 mx-auto" style="max-width: 80vw;">
+
+        <div class="row">
+        <% eventsArray.forEach((event)=> { %>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card" style="border: 2px solid #FFBABA;">
+                    <div class="card-header" style="background-color: #C85C8E;">
+                        <h4 class="my-0 fw-normal">
+                            <%= event.eventName %>
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$<%= event.price %><small
+                                    class="text-body-secondary fw-light">/ticket</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Quantity - <%= event.quantity %>
+                            </li>
+                            <li>Sold By - <%= event.fName %>
+                            </li>
+                            <li><i class="fa-solid fa-location-dot"></i>
+                                <%= event.city +", "+ event.state %></li>
+                                <li><%= event.eventDetails.substring(0, 100) + " ..." %>
+                            </li>
+                        </ul>
+                        <a class="w-100 btn btn-lg btn-primary" style="background-color: #C85C8E;"
+                            href="/events/<%= event.eventName %>">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <% }) %>
+    </div>
+    </div>
+
+    <%- include('partials/footer.ejs'); %>

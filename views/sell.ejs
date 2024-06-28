@@ -1,0 +1,87 @@
+<%- include('partials/header.ejs'); %>
+
+    <div class="container-lg content-section">
+        <h1 class="mx-auto">Sell Your Tickets here</h1>
+        <form class="row g-3 mb-5" action="/sell" method="post">
+            <div class="col-md-6">
+                <label for="fName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="fName" name="fName" required>
+            </div>
+            <div class="col-md-6">
+                <label for="lName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lName" name="lName" required>
+            </div>
+            <div class="col-md-4">
+                <label for="eventName" class="form-label">Event Name</label>
+                <input type="text" class="form-control" id="eventName" name="eventName" required>
+            </div>
+            <div class="col-md-3">
+                <label for="inputCity" class="form-label">Event City</label>
+                <input type="text" class="form-control" id="inputCity" name="city" required>
+            </div>
+            <div class="col-md-3">
+                <label for="inputState" class="form-label">Event State</label>
+                <select id="inputState" class="form-select" name="state" required>
+                    <option selected>Choose...</option>
+                    <% states.forEach((state) => { %>
+                        <option><%= state %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip" name="zip" required>
+            </div>
+            <div class="form-floating col-md-12">
+                <textarea class="form-control" placeholder="Event Description" id="floatingTextarea1" name="eventDescription" required> </textarea>
+                <label for="floatingTextarea1">Event Descrption</label>
+            </div>
+            <div class="form-floating col-md-12">
+                <textarea class="form-control" placeholder="Ticket Details" id="floatingTextarea2" name="ticketDescription" required> </textarea>
+                <label for="floatingTextarea2">Ticket Details</label>
+            </div>
+            <div class="col-md-4">
+                <label for="ticketPrice" class="form-label">Ticket Price(in $)</label>
+                <input type="text" class="form-control" id="ticketPrice" name="price" required>
+            </div>
+            <div class="col-md-4">
+                <label for="ticketQuantity" class="form-label">Ticket Quantity</label>
+                <select id="ticketQuantity" class="form-select" name="quantity" required>
+                    <option selected>Choose...</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="eventDate" class="form-label">Event Date</label>
+                <input type="date" class="form-control" id="eventDate" name="date" required>
+            </div>
+            <div class="col-md-4">
+                <label for="formFileMultiple" class="form-label">e-Tickets</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple required>
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                    <label class="form-check-label" for="gridCheck">
+                        By Submitting this form, I accept that all data provided here is correct and if found fraud I
+                        would be responsible for act according to terms and conditions.
+                    </label>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-lg mx-auto">Sell Now</button>
+            </div>
+        </form>
+    </div>
+
+
+    <%- include('partials/footer.ejs'); %>
